@@ -1,3 +1,4 @@
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -18,4 +19,49 @@
   --font-size-2: 1.75rem;
   --font-size-3: 1.25rem;
   --font-size-4: 1rem;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+ul{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+button{
+  cursor: pointer;
+}
+label{
+  width: max-content;
+}
+
+
+.hidden{
+  display: none !important;
+}
+.flex{
+  display: flex;
+}
+.wrap{
+  flex-wrap: wrap;
+}
+.flex-col{
+  flex-direction: column;
+}
+.justify-between{
+  justify-content: space-between;
+}
+.justify-center{
+  justify-content: center;
+}
+.justify-end{
+  justify-content: flex-end;
+}
+.align-center{
+  align-items: center;
+}
+.align-end{
+  align-items: flex-end;
 }
