@@ -1,0 +1,38 @@
+
+.rodape-container{
+    background-color: var(--color-grey-100);
+}
+.rodape{
+    width: 1140px;
+    margin: 0 auto;
+    padding: 80px 0px;
+}
+.rodape > button{
+    height: max-content;
+    white-space: nowrap;
+    padding: 11px 25px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: var(--color-grey-200);
+    color: var(--color-grey-500);
+    border: none;
+    border-radius: 32px;
+
+}
+.rodape-info{
+    gap: var(--gap-2);
+}
+.rodape-info > p{
+    width: 55%;
+    color: var(--color-grey-200);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+}
+.logo-rodape > h3{
+    color: var(--color-grey-700);
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 150%;
+}

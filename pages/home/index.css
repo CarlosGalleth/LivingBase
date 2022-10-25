@@ -1,1 +1,101 @@
-/* Desenvolva seu estilo aqui */
+ 
+.top{
+    width: 1150px;
+    margin: 80px auto;
+}
+.top > div{
+    gap: var(--gap-1);
+}
+.logo > img{
+    padding: 6px;
+    height: 40px;
+    width: 50px;
+}
+.logo{
+    gap: var(--gap-5);
+}
+.brand{
+    gap: var(--gap-3);
+}
+.brand > h3{
+    width: 430px;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 150%;
+}
+.brand > small{
+    width: 422px;
+    color: var(--color-grey-100);
+    font-weight: 500;
+    font-size: 16px;
+}
+.brand > p{
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--color-grey-100);
+}
+
+
+.options-container{
+    position: relative;
+    width: 1150px;
+    height: 60px;
+    margin: 80px auto;
+}
+.options-container > li{
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: var(--color-grey-600);
+    padding: 11px 25px;
+    border: 1px solid var(--color-grey-600);
+    border-radius: 32px;
+}
+.options-container > button{
+    position: absolute;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    padding: 9px;
+    border-radius: 50%;
+}
+.options-container img{
+    width: 25px;
+}
+.choosed-btn{
+    color: var(--color-grey-700);
+    background-color: var(--color-brand-100) !important;
+}
+
+
+.container{
+    width: 1150px;
+    margin: 80px auto;
+}
+.post{
+    width: 48%;
+    gap: var(--gap-4);
+    margin-bottom: 69px;
+}
+.post > img{
+    width: 100%;
+    height: 172px;
+}
+.post-info{
+    gap: var(--gap-5);
+}
+.post-info > h3{
+    font-weight: 600;
+    font-size: 20px;
+}
+.post-info > p{
+    width: 100%;
+    font-weight: 400;
+    font-size: 16px;
+}
+.post-info > a{
+    color: var(--color-brand-200);
+    font-weight: 600;
+    font-size: 19px;
+}

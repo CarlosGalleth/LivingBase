@@ -1,1 +1,99 @@
-/* Desenvolva seu estilo aqui */
+
+.top{
+    background-color: var(--color-grey-700);
+    height: 98px;
+}
+.top-container{
+    margin: 0 auto;
+    width: 1150px;
+}
+.top-container > button{
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: var(--color-grey-600);
+    padding: 11px 25px;
+    border: 1px solid var(--color-grey-600);
+    border-radius: 32px;
+}
+.logo{
+    gap: var(--gap-6);
+}
+.logo > img{
+    padding: 6px;
+    height: 40px;
+    width: 50px;
+}
+
+
+.post-title-container{
+    background-color: var(--color-grey-600);
+}
+.post-title{
+    width: 1140px;
+    margin: 0 auto;
+    padding: 80px 0px;
+    gap: var(--gap-4);
+}
+.post-title > h2{
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 150%;
+}
+.post-title > p{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--color-grey-200);
+}
+
+
+.container{
+    width: 1140px;
+    margin: 0 auto;
+
+}
+.container > img{
+    margin: 50px 0;
+    width: 100%;
+}
+.container > p{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--color-grey-200);
+}
+
+
+.options-container{
+    position: relative;
+    width: 1150px;
+    height: 60px;
+    margin: 80px auto;
+}
+.options-container > li{
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: var(--color-grey-600);
+    padding: 11px 25px;
+    border: 1px solid var(--color-grey-600);
+    border-radius: 32px;
+}
+.options-container > button{
+    position: absolute;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    padding: 9px;
+    border-radius: 50%;
+}
+.options-container img{
+    width: 25px;
+}
+.choosed-btn{
+    color: var(--color-grey-700);
+    background-color: var(--color-brand-100) !important;
+}
+
+
