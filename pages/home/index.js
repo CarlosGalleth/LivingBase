@@ -67,15 +67,12 @@ function filtrarCategoria() {
 }
 filtrarCategoria()
 function filtrar(post, elem) {
-    let arrFiltered = []
-    post.forEach((element) => {
-        if (element.category == elem.innerText) {
-            arrFiltered.push(element)
-        }
-        if (elem.innerText == "Todos") {
-            arrFiltered.push(element)
-        }
+    let arrFiltered = post.filter((element) => {
+        return element.category == elem.innerText
     })
+    if (elem.innerText == "Todos") {
+        renderizarPost(post)
+    }
     renderizarPost(arrFiltered)
 }
 
