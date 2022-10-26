@@ -28,4 +28,24 @@ function voltarAoTopo() {
     })
 }
 voltarAoTopo()
+
+function filtrarCategoria() {
+    let category = JSON.parse(localStorage.getItem("category"))
+    let post = Array.from(document.querySelectorAll("#postC"))
+
+    post.forEach((elem) => {
+        if (elem.innerText == category) {
+            elem.classList.add("choosed-btn")
+        }
+
+        elem.addEventListener('click', async () => {
+            post.forEach((btn) => {
+                btn.classList.remove("choosed-btn")
+            })
+            elem.classList.add("choosed-btn")
+        })
+    })
+}
+filtrarCategoria()
+
 renderizarPost()

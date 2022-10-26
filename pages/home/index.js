@@ -12,6 +12,9 @@ async function buscarPost() {
         .then((response) => renderizarPost(response.news))
 }
 function renderizarPost(post) {
+    let choosed = Array.from(document.getElementsByClassName("choosed-btn"))
+    let choosedBtn = choosed[0].innerText
+    console.log(choosed[0].innerText)
     post.forEach(element => {
         let postsList = document.getElementsByClassName("container")[0]
 
@@ -38,7 +41,9 @@ function renderizarPost(post) {
 
         accessContent.addEventListener('click', () => {
             let strPost = JSON.stringify(element)
+            let strCategory = JSON.stringify(choosedBtn)
             localStorage.setItem("post", strPost)
+            localStorage.setItem("category", strCategory)
         })
     });
 }
