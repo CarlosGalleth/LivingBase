@@ -9,6 +9,7 @@ const observer = new IntersectionObserver((entries) => {
     }
 })
 
+
 async function buscarPost() {
     await fetch(`${baseUrl}/news?page=${page}`, {
         method: "GET",
@@ -18,8 +19,8 @@ async function buscarPost() {
     })
         .then((response) => response.json())
         .then((response) => {
-            console.log(response)
-            if (response.news.length !== 0) {
+            if (page <= 3) {
+                console.log(response)
                 renderizarPost(response.news)
             }
         })
@@ -29,7 +30,6 @@ function renderizarPost(post) {
     let choosed = Array.from(document.getElementsByClassName("choosed-btn"))
     let choosedBtn = choosed[0].innerText
     post.forEach(element => {
-
         let li = document.createElement("li")
         li.classList = "post flex flex-col"
 
@@ -63,38 +63,65 @@ function renderizarPost(post) {
     observer.observe(divObserver)
 }
 
+
+async function aspa(buttonCategory) {
+    await fetch(`${baseUrl}/news?page=${page}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+        .then((response) => response.json())
+        .then((response) => {
+            response.news.filter((elem) => {
+                console.log(buttonCategory.innerText == elem.category)
+            })
+        })
+}
+
+
 function filtrarCategoria() {
     let postsList = document.getElementsByClassName("container")[0]
     let post = document.querySelectorAll("#postC")
     post.forEach((elem) => {
-        elem.addEventListener('click', async () => {
+        elem.addEventListener('click', () => {
+            page = 0
             postsList.innerHTML = ""
             post.forEach((btn) => {
                 btn.classList.remove("choosed-btn")
             })
             elem.classList.add("choosed-btn")
 
-            await fetch(`${baseUrl}/news?page=1`, {
+            filtrar(elem)            
+            /*
+            await fetch(`${baseUrl}/news?page=${page}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
                 },
             })
             .then((response) => response.json())
-            .then((response) => filtrar(response.news, elem))
+            .then((response) => filtrar(response.news, elem))*/
         })
     })
 }
 filtrarCategoria()
-function filtrar(post, elem) {
+async function filtrar(buttonCategory) {
+    aspa(buttonCategory)
+
     let arrFiltered = post.filter((element) => {
+        console.log(element.category)
         return element.category == elem.innerText
     })
     if (elem.innerText == "Todos") {
         renderizarPost(post)
     }
+    if (arrFiltered.length == 0) {
+        page++
+    }
     renderizarPost(arrFiltered)
 }
+
 
 function irAoConteudo() {
     let goContent = document.getElementById("go-to-content")
@@ -110,4 +137,5 @@ function voltarAoTopo() {
     })
 }
 voltarAoTopo()
+
 buscarPost()
