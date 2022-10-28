@@ -1,22 +1,34 @@
 
 const baseUrl = "https://m2-api-living.herokuapp.com"
+let page = 0
+
+const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting == true) {
+        page++
+        buscarPost()
+    }
+})
 
 async function buscarPost() {
-    await fetch(`${baseUrl}/news?page=1`, {
+    await fetch(`${baseUrl}/news?page=${page}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
         },
     })
         .then((response) => response.json())
-        .then((response) => renderizarPost(response.news))
+        .then((response) => {
+            console.log(response)
+            if (response.news.length !== 0) {
+                renderizarPost(response.news)
+            }
+        })
 }
 function renderizarPost(post) {
+    let postsList = document.getElementsByClassName("container")[0]
     let choosed = Array.from(document.getElementsByClassName("choosed-btn"))
     let choosedBtn = choosed[0].innerText
-    console.log(choosed[0].innerText)
     post.forEach(element => {
-        let postsList = document.getElementsByClassName("container")[0]
 
         let li = document.createElement("li")
         li.classList = "post flex flex-col"
@@ -36,6 +48,7 @@ function renderizarPost(post) {
         accessContent.href = "../post/index.html"
         accessContent.target = "_blank"
         divInfo.append(h3Title, pDescription, accessContent)
+
         li.append(postImg, divInfo)
         postsList.append(li)
 
@@ -46,6 +59,8 @@ function renderizarPost(post) {
             localStorage.setItem("category", strCategory)
         })
     });
+    let divObserver = document.getElementsByClassName("observer")[0]
+    observer.observe(divObserver)
 }
 
 function filtrarCategoria() {
